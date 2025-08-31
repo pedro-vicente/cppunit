@@ -22,3 +22,12 @@ if(CPPUNIT_BUILD_EXAMPLES)
 else()
   set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT cppunit)
 endif()
+
+install(DIRECTORY include/ DESTINATION include
+        FILES_MATCHING PATTERN "*.h")
+
+install(TARGETS cppunit
+        EXPORT cppunit-targets
+        ARCHIVE DESTINATION lib
+        LIBRARY DESTINATION lib
+        RUNTIME DESTINATION bin)
